@@ -1,7 +1,7 @@
 {
     "name": "fixer",
-    "title": "jQuery Base64",
-    "description": "Makes Base64 en & -decoding simpler as it is.",
+    "title": "jQuery Fixer",
+    "description": "Fix elements like any other sticky plugins it do.",
     "keywords": [
         "fix",
         "fixed",
@@ -11,7 +11,7 @@
         "position",
         "scroll"
     ],
-    "version": "0.0.1",
+    "version": "0.0.3",
     "author": {
         "name": "Yannick Albert",
         "email": "mail@yckart.com",
