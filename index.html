@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 10px;
+        }
+
+        #header {
+            height: 100px;
+            margin: 0 0 10px;
+            background: #ddd;
+        }
+
+        .content {
+            position: relative;
+            float: right;
+            width: 100%;
+            height: 600px;
+            margin: 0 0 10px -110px;
+        }
+
+        .main {
+            height: 600px;
+            margin-left: 110px;
+            background: #ddd;
+        }
+
+        .side {
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 300px;
+            margin: 0 10px 0 0;
+            background: indigo;
+        }
+
+        #footer {
+            height: 100px;
+            clear: both;
+            background: #ddd;
+        }
+
+        .cf:before,
+        .cf:after {
+            content:" ";
+            display:table;
+        }
+        .cf:after { clear:both; }
+        .cf {  *zoom:1; }
+    </style>
+
+    <title>jquery.fixer.js | Fix elements like any other sticky plugins it do.</title>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div class="content">
+        <div class="side"></div>
+        <div class="main"></div>
+    </div>
+
+    <div class="content">
+        <div class="side"></div>
+        <div class="main"></div>
+    </div>
+
+    <div class="content">
+        <div class="side"></div>
+        <div class="main"></div>
+    </div>
+
+    <div id="footer" class="cf"></div>
+
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+    <script src='jquery.fixer.js'></script>
+    <script>
+        $(function() {
+            $('.side').fixer({
+                gap: 10
+            });
+        });
+    </script>
+</body>
+</html>
