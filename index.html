@@ -1,21 +1,21 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
 
     <style>
         body {
             margin: 0;
             padding: 10px;
         }
-
+        
         #header {
             height: 100px;
             margin: 0 0 10px;
-            background: #ddd;
+            background: lightgray;
         }
-
+        
         .content {
             position: relative;
             float: right;
@@ -23,38 +23,29 @@
             height: 600px;
             margin: 0 0 10px -110px;
         }
-
-        .main {
-            height: 600px;
-            margin-left: 110px;
-            background: #ddd;
-        }
-
+        
         .side {
-            position: absolute;
-            top: 0;
+            float: left;
             width: 100px;
             height: 300px;
             margin: 0 10px 0 0;
             background: indigo;
         }
-
+        
+        .main {
+            height: 600px;
+            margin-left: 110px;
+            background: lightgray;
+        }
+        
         #footer {
-            height: 100px;
             clear: both;
-            background: #ddd;
+            height: 100px;
+            background: lightgray;
         }
-
-        .cf:before,
-        .cf:after {
-            content:" ";
-            display:table;
-        }
-        .cf:after { clear:both; }
-        .cf {  *zoom:1; }
     </style>
 
-    <title>jquery.fixer.js | Fix elements like any other sticky plugins it do.</title>
+    <title>jquery.fixer.js | Fix elements as `position:sticky` do.</title>
 </head>
 
 <body>
@@ -75,15 +66,13 @@
         <div class="main"></div>
     </div>
 
-    <div id="footer" class="cf"></div>
+    <div id="footer"></div>
 
-    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+    <script src='http://code.jquery.com/jquery-1.10.1.min.js'></script>
     <script src='jquery.fixer.js'></script>
     <script>
-        $(function() {
-            $('.side').fixer({
-                gap: 10
-            });
+        $('.side').fixer({
+            gap: 10
         });
     </script>
 </body>
