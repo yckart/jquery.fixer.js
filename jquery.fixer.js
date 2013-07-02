@@ -1,64 +1,65 @@
 /*!
- * jquery.fixer.js 0.0.1 - https://github.com/yckart/jquery.fixer.js
- * Fix elements like any other sticky plugins it do.
+ * jquery.fixer.js 0.0.3 - https://github.com/yckart/jquery.fixer.js
+ * Fix elements as `position:sticky` do.
  *
  *
- * Copyright (c) 2012 Yannick Albert (http://yckart.com)
+ * Copyright (c) 2013 Yannick Albert (http://yckart.com/) | @yckart
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php).
- * 2013/02/18
+ * 2013/07/02
  **/
+
 ;(function($, window) {
-    'use strict';
 
-    $.fn.fixer = function(options) {
-        options = $.extend({}, $.fn.fixer.options, options);
-
-        return this.each(function() {
-            var $this = $(this),
-                $wrap = $this.parent(),
-                $win = $(window);
-
-            $win.bind("scroll load", function() {
-                var cssPos = (options.horizontal ? 'left' : 'top'),
-                    wrapPos = $wrap.offset()[options.horizontal ? 'left' : 'top'],
-                    elemSize = $this[options.horizontal ? 'outerWidth' : 'outerHeight'](),
-                    wrapSize = $wrap[options.horizontal ? 'outerWidth' : 'outerHeight'](),
-                    scrollPos = $win[options.horizontal ? 'scrollLeft' : 'scrollTop']();
-
-                if (scrollPos >= wrapPos - options.gap && (wrapSize + wrapPos - options.gap) >= (scrollPos + elemSize)) {
-                    $this.css({
-                        position: 'fixed'
-                    }).css(options.horizontal ? {
-                        left: options.gap
-                    } : {
-                        top: options.gap
-                    });
-                    options.isFixed();
-                } else if (scrollPos < wrapPos) {
-                    $this.css({
-                        position: 'absolute'
-                    }).css(options.horizontal ? {
-                        left: 0
-                    } : {
-                        top: 0
-                    });
-                } else {
-                    $this.css({
-                        position: 'absolute'
-                    }).css(options.horizontal ? {
-                        left: wrapSize - elemSize
-                    } : {
-                        top: wrapSize - elemSize
-                    });
-                }
-            });
-        });
-    };
-
-    $.fn.fixer.options = {
+    var $win = $(window);
+    var defaults = {
         gap: 0,
         horizontal: false,
         isFixed: $.noop
     };
 
-})(jQuery, window);
+    var supportSticky = function(elem) {
+        var prefixes = ['', '-webkit-', '-moz-', '-ms-', '-o-'], prefix;
+        while (prefix = prefixes.pop()) {
+            elem.style.cssText = 'position:' + prefix + 'sticky';
+            if (elem.style.position !== '') return true;
+        }
+        return false;
+    };
+
+    $.fn.sticky = function(options) {
+        options = $.extend({}, defaults, options);
+        var hori = options.horizontal,
+            cssPos = hori ? 'left' : 'top';
+
+        return this.each(function() {
+            var style = this.style,
+                $this = $(this),
+                $parent = $this.parent();
+
+            if (supportSticky(this)) {
+                style[cssPos] = options.gap + 'px';
+                return;
+            }
+
+            $win.on('scroll', function() {
+                var scrollPos = $win[hori ? 'scrollLeft' : 'scrollTop'](),
+                    elemSize = $this[hori ? 'outerWidth' : 'outerHeight'](),
+                    parentPos = $parent.offset()[cssPos],
+                    parentSize = $parent[hori ? 'outerWidth' : 'outerHeight']();
+
+                if (scrollPos >= parentPos - options.gap && (parentSize + parentPos - options.gap) >= (scrollPos + elemSize)) {
+                    style.position = 'fixed';
+                    style[cssPos] = options.gap + 'px';
+                    options.isFixed();
+                } else if (scrollPos < parentPos) {
+                    style.position = 'absolute';
+                    style[cssPos] = 0;
+                } else {
+                    style.position = 'absolute';
+                    style[cssPos] = parentSize - elemSize + 'px';
+                }
+            }).resize();
+        });
+    };
+
+}(jQuery, this));
