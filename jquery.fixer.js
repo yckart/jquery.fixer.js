@@ -1,5 +1,5 @@
 /*!
- * jquery.fixer.js 0.0.3 - https://github.com/yckart/jquery.fixer.js
+ * jquery.sticky.js 0.0.3 - https://github.com/yckart/jquery.sticky.js
  * Fix elements as `position:sticky` do.
  *
  *
