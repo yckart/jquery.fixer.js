@@ -1,7 +1,7 @@
 {
     "name": "fixer",
     "title": "jQuery Fixer",
-    "description": "Fix elements like any other sticky plugins it do.",
+    "description": "Fix elements as `position:sticky` do.",
     "keywords": [
         "fix",
         "fixed",
