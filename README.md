@@ -1,5 +1,9 @@
 Works as `position:sticky` do, a painfree-fallback for iOS, some major mobile browsers and of course the latest stable desktop webkit-release.
 
+Take a look at the [demo](http://yckart.github.io/jquery.fixer.js/).
+
+[![QR](http://chart.apis.google.com/chart?cht=qr&chs=240x240&chl=http://yckart.github.io/jquery.fixer.js/)](http://yckart.github.io/jquery.fixer.js/)
+
 #No documentation yet!
 (feel free to write a bit about it)
 
@@ -10,9 +14,6 @@ Works as `position:sticky` do, a painfree-fallback for iOS, some major mobile br
 
  [@yckart](http://twitter.com/yckart) #jquery #fixer
  [http://yckart.com](http://yckart.com/)
-
-### Thanks
-- https://github.com/carlo/jquery-fixer
 
 ###License
 Copyright (c) 2013 Yannick Albert ([http://yckart.com/](http://yckart.com/))
