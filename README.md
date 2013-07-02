@@ -1,4 +1,4 @@
-Works as a `position:sticky`-fallback, works yet with iOS and some major mobile browsers and of course the latest webkit-release.
+Works as `position:sticky` do, a painfree-fallback for iOS, some major mobile browsers and of course the latest stable desktop webkit-release.
 
 #No documentation yet!
 (feel free to write a bit about it)
