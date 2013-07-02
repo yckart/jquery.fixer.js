@@ -1,3 +1,5 @@
+Works as a `position:sticky`-fallback, works yet with iOS and some major mobile browsers and of course the latest webkit-release.
+
 #No documentation yet!
 (feel free to write a bit about it)
 
