@@ -1,5 +1,5 @@
 /*!
- * jquery.sticky.js 0.0.3 - https://github.com/yckart/jquery.sticky.js
+ * jquery.fixer.js 0.0.3 - https://github.com/yckart/jquery.fixer.js
  * Fix elements as `position:sticky` do.
  *
  *
@@ -26,7 +26,7 @@
         return false;
     };
 
-    $.fn.sticky = function(options) {
+    $.fn.fixer = function(options) {
         options = $.extend({}, defaults, options);
         var hori = options.horizontal,
             cssPos = hori ? 'left' : 'top';
