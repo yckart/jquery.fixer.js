@@ -27,7 +27,7 @@
     };
 
     $.fn.fixer = function(options) {
-        options = $.extend({}, defaults, options);
+        options = $.extend(options, defaults);
         var hori = options.horizontal,
             cssPos = hori ? 'left' : 'top';
 
